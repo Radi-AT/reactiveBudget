@@ -6,6 +6,7 @@ module.exports = {
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -15,7 +16,7 @@ module.exports = {
     },
   },
   "plugins": [
-    "react"
+    "react",
   ],
   "rules": {
     // enable additional rules
