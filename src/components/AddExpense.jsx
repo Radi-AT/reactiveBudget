@@ -1,12 +1,26 @@
 import './AddExpense.css';
 import { useState } from "react";
+import { addData } from '../firebase/firestoroService';
 
 const AddExpense = () => {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await addData('test', { title: title, amount: amount });
+    } catch (error) {
+      console.log('ERROR ON ADDING DATA: ', error);
+    }
+
+    setTitle('');
+    setAmount('');
+  };
+
   return (
-    <form className="addExpense" action="">
+    <form className="addExpense" onSubmit={ onSubmit }>
       <input
         type="text"
         name="title"
@@ -17,6 +31,7 @@ const AddExpense = () => {
       <input
         type="number"
         name="amount"
+        placeholder="Amount..."
         value={ amount }
         onChange={ (e) => setAmount(e.target.value) }
       />

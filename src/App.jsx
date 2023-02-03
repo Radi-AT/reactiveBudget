@@ -1,5 +1,6 @@
 import './App.css';
 import AddExpense from './components/AddExpense';
+import DataList from './components/DataList';
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <h1>Expenses list</h1>
       <AddExpense/>
+      <DataList/>
     </div>
   );
 }
