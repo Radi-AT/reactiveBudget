@@ -3,7 +3,6 @@
   flex-direction: row;
 }
 
-.addExpense button,
 .addExpense input {
   margin: 0 12px;
 }

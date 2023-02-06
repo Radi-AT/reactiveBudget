@@ -18,6 +18,11 @@ module.exports = {
   "plugins": [
     "react",
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     // enable additional rules
     "indent": [2, 2],
