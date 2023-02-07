@@ -17,8 +17,9 @@ const DataList = () => {
   };
 
   useEffect(() => {
+    console.log('USE EFFECT HAPPENING');
     getData();
-  }, [expenses]);
+  }, []);
 
   return (
     <div className="">

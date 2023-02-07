@@ -1,7 +1,7 @@
 {
   "name": "reactivebudget",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -21,6 +21,7 @@
     "eslint": "^8.33.0",
     "eslint-plugin-react": "^7.32.2",
     "vite": "^4.0.0",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-pwa": "^0.14.1"
   }
 }
