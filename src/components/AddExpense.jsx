@@ -1,16 +1,16 @@
 import './AddExpense.css';
 import { useState } from "react";
-import { addData } from '../firebase/firestoroService';
+import { addData } from '../firebase/firestoreService';
 
 const AddExpense = () => {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     try {
-      await addData('test', { title: title, amount: amount });
+      addData('test', { title: title, amount: amount });
     } catch (error) {
       console.log('ERROR ON ADDING DATA: ', error);
     }

@@ -1,30 +1,33 @@
-import { getCollection } from "../firebase/firestoroService";
+import { snapshotSub } from "../firebase/firestoreService";
 import { useEffect, useState } from "react";
 
 const DataList = () => {
   const [expenses, setExpenses] = useState([]);
+  const [syncData, setSyncData] = useState([]);
 
-  const getData = async () => {
-    const { docs } = await getCollection("test");
+  useEffect(() => {
+    const unsubscribe = snapshotSub('test', setSyncData);
+
+    return () => unsubscribe;
+  }, []);
+
+  useEffect(() => {
     let formatted = [];
-    docs.map((doc) => {
+    syncData.map((doc) => {
       formatted.push({
         id: doc.id,
         ...doc.data()
       });
     });
     setExpenses(formatted);
-  };
+  }, [syncData]);
 
-  useEffect(() => {
-    console.log('USE EFFECT HAPPENING');
-    getData();
-  }, []);
+  const testing = () => console.log('TESTING ', );
 
   return (
     <div className="">
-      <h2>DataList</h2>
-      <button onClick={() => getData()}>GET EXPENSES</button>
+      <h2>Data List</h2>
+      <button onClick={() => testing()}>TESTING</button>
       <table role="grid">
         <thead>
           <tr>
