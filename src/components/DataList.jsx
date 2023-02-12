@@ -16,7 +16,7 @@ const DataList = () => {
     syncData.map((doc) => {
       formatted.push({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       });
     });
     setExpenses(formatted);
@@ -31,9 +31,9 @@ const DataList = () => {
       <table role="grid">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Amount</th>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Amount</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +45,13 @@ const DataList = () => {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <th scope="col">#</th>
+            <td scope="col">Total</td>
+            <td scope="col">Total</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
