@@ -22,10 +22,14 @@ const DataList = () => {
     setExpenses(formatted);
   }, [syncData]);
 
+  const editExpense = (e) => {
+    console.log(e.target.parentElement.getAttribute('data-id'));
+  };
+
   const testing = () => console.log('TESTING ', );
 
   return (
-    <div className="">
+    <div className="container">
       <h2>Data List</h2>
       <button onClick={() => testing()}>TESTING</button>
       <table role="grid">
@@ -38,7 +42,7 @@ const DataList = () => {
         </thead>
         <tbody>
           {expenses.map((doc) => (
-            <tr key={doc.id}>
+            <tr key={doc.id} data-id={doc.id} onClickCapture={(e) => editExpense(e)}>
               <td>{doc.id}</td>
               <td>{doc.title}</td>
               <td>{doc.amount}</td>

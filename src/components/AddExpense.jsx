@@ -20,22 +20,34 @@ const AddExpense = () => {
   };
 
   return (
-    <form className="addExpense" onSubmit={ onSubmit }>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title..."
-        value={ title }
-        onChange={ (e) => setTitle(e.target.value) }
-      />
-      <input
-        type="number"
-        name="amount"
-        placeholder="Amount..."
-        value={ amount }
-        onChange={ (e) => setAmount(e.target.value) }
-      />
-      <button type="submit">Add expense</button>
+    <form className="addExpense container" onSubmit={ onSubmit }>
+      <div>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title..."
+          value={ title }
+          onChange={ (e) => setTitle(e.target.value) }
+        />
+        <input
+          type="number"
+          name="amount"
+          placeholder="Amount..."
+          value={ amount }
+          onChange={ (e) => setAmount(e.target.value) }
+        />
+      </div>
+      <div>
+        <select>
+          <option value="" disabled>Categoria</option>
+          <option>Super/General</option>
+          <option>Juegos</option>
+          <option>Restaurantes</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit">Add expense</button>
+      </div>
     </form>
   );
 };

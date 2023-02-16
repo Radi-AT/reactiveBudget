@@ -1,8 +1,12 @@
 .addExpense {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.addExpense input {
-  margin: 0 12px;
+.addExpense div {
+  display: flex;
+}
+
+.addExpense div input:first-of-type {
+  margin-right: 12px;
 }
