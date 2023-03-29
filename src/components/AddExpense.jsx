@@ -13,6 +13,7 @@ const AddExpense = () => {
       addData('test', { title: title, amount: amount });
     } catch (error) {
       console.log('ERROR ON ADDING DATA: ', error);
+      console.log('This is a test: ');
     }
 
     setTitle('');
