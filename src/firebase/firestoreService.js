@@ -1,7 +1,7 @@
 import firesbaseInstance from "./firebaseConfig";
 import {
-  getFirestore,
-  enableIndexedDbPersistence,
+  initializeFirestore,
+  persistentLocalCache,
   collection,
   query,
   orderBy,
@@ -13,15 +13,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-const db = getFirestore(firesbaseInstance);
-
-enableIndexedDbPersistence(db).catch((err) => {
-  if (err.code == "failed-precondition") {
-    // Multiple tabs open, persistence can only be enabled in one tab at a a time.
-  } else if (err.code == "unimplemented") {
-    // The current browser does not support all of the features required to enable persistence.
-  }
-});
+const db = initializeFirestore(firesbaseInstance, { localCache: persistentLocalCache() });
 // Subsequent queries will use persistence, if it was enabled successfully
 
 const getCollection = (collectionName) => {
@@ -67,4 +59,4 @@ function updateExpense(collectionName, id) {
   });
 }
 
-export { db, getCollection, snapshotSub, addData, addCategory, updateExpense };
+export { getCollection, snapshotSub, addData, addCategory, updateExpense };
