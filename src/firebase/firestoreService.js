@@ -1,4 +1,4 @@
-import firesbaseInstance from "./firebaseConfig";
+import firebaseInstance from "./firebaseConfig";
 import {
   initializeFirestore,
   persistentLocalCache,
@@ -13,7 +13,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-const db = initializeFirestore(firesbaseInstance, { localCache: persistentLocalCache() });
+const db = initializeFirestore(firebaseInstance, { localCache: persistentLocalCache() });
 // Subsequent queries will use persistence, if it was enabled successfully
 
 const getCollection = (collectionName) => {

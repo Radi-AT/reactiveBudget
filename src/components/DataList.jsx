@@ -30,6 +30,7 @@ const DataList = () => {
 
   return (
     <div className="container">
+      <h1>Expenses list</h1>
       <h2>Data List</h2>
       <button onClick={() => testing()}>TESTING</button>
       <table role="grid">
